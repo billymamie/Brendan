@@ -152,3 +152,31 @@ celebrity_data <- data.frame(names, power_ranking, annual_pay)
 
 print(celebrity_data)
 ```
+## b.
+```{r}
+celebrity_data$power_ranking[celebrity_data$names == "J.K. Rowling"] <- 19
+celebrity_data$annual_pay[celebrity_data$names == "J.K. Rowling"] <- 75
+
+print(celebrity_data)
+```
+
+## c. 
+```{r}
+
+write.csv(celebrity_data, "PowerRanking.csv", row.names = FALSE)
+
+imported_data <- read.csv("PowerRanking.csv")
+
+print(imported_data)
+```
+
+
+## d. 
+```{r}
+selected_rows <- celebrity_data[10:20, ]
+
+save(selected_rows, file = "Ranks.RData")
+```
+
+## e. 
+# The output from the `print(selected_rows)` command will display a subset of the original data frame, specifically rows 10 to 20. This will show the names, power rankings, and annual salaries of those celebrities, to focus on particular high-ranking individuals from the list.
