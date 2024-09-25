@@ -514,16 +514,36 @@ been altered since there are functions that are applied.</h2>
 </div>
 <div id="c.-1" class="section level2">
 <h2>c.</h2>
-<p>rivers</p>
-<p>stats_vector &lt;- c(length(rivers), sum(rivers), mean(rivers),
-median(rivers), var(rivers), sd(rivers), min(rivers), max(rivers))</p>
-<p>print(stats_vector)</p>
-<pre><code># 8. 
-## a.
+<pre class="r"><code>rivers</code></pre>
+<pre><code>##   [1]  735  320  325  392  524  450 1459  135  465  600  330  336  280  315  870
+##  [16]  906  202  329  290 1000  600  505 1450  840 1243  890  350  407  286  280
+##  [31]  525  720  390  250  327  230  265  850  210  630  260  230  360  730  600
+##  [46]  306  390  420  291  710  340  217  281  352  259  250  470  680  570  350
+##  [61]  300  560  900  625  332 2348 1171 3710 2315 2533  780  280  410  460  260
+##  [76]  255  431  350  760  618  338  981 1306  500  696  605  250  411 1054  735
+##  [91]  233  435  490  310  460  383  375 1270  545  445 1885  380  300  380  377
+## [106]  425  276  210  800  420  350  360  538 1100 1205  314  237  610  360  540
+## [121] 1038  424  310  300  444  301  268  620  215  652  900  525  246  360  529
+## [136]  500  720  270  430  671 1770</code></pre>
+<pre class="r"><code>stats_vector &lt;- c(length(rivers),
+                  sum(rivers), 
+                  mean(rivers), 
+                  median(rivers), 
+                  var(rivers), 
+                  sd(rivers), 
+                  min(rivers), 
+                  max(rivers))
 
-
-``` r
-names &lt;- c(&quot;Tom Cruise&quot;, &quot;Rolling Stones&quot;, &quot;Oprah Winfrey&quot;, &quot;U2&quot;, &quot;Tiger Woods&quot;,
+print(stats_vector)</code></pre>
+<pre><code>## [1]    141.0000  83357.0000    591.1844    425.0000 243908.4086    493.8708
+## [7]    135.0000   3710.0000</code></pre>
+</div>
+</div>
+<div id="section-13" class="section level1">
+<h1>8.</h1>
+<div id="a.-4" class="section level2">
+<h2>a.</h2>
+<pre class="r"><code>names &lt;- c(&quot;Tom Cruise&quot;, &quot;Rolling Stones&quot;, &quot;Oprah Winfrey&quot;, &quot;U2&quot;, &quot;Tiger Woods&quot;,
            &quot;Steven Spielberg&quot;, &quot;Howard Stern&quot;, &quot;50 Cent&quot;, &quot;Cast of the Sopranos&quot;, &quot;Dan Brown&quot;,
            &quot;Bruce Springsteen&quot;, &quot;Donald Trump&quot;, &quot;Muhammad Ali&quot;, &quot;Paul McCartney&quot;, &quot;George Lucas&quot;,
            &quot;Elton John&quot;, &quot;David Letterman&quot;, &quot;Phil Mickelson&quot;, &quot;J.K Rowling&quot;, &quot;Bradd Pitt&quot;,
@@ -563,6 +583,89 @@ print(celebrity_data)</code></pre>
 ## 24          Celine Dion            24         40
 ## 25          Kobe Bryant            25         31</code></pre>
 </div>
+<div id="b.-4" class="section level2">
+<h2>b.</h2>
+<pre class="r"><code>celebrity_data$power_ranking[celebrity_data$names == &quot;J.K. Rowling&quot;] &lt;- 19
+celebrity_data$annual_pay[celebrity_data$names == &quot;J.K. Rowling&quot;] &lt;- 75
+
+print(celebrity_data)</code></pre>
+<pre><code>##                   names power_ranking annual_pay
+## 1            Tom Cruise             1         67
+## 2        Rolling Stones             2         90
+## 3         Oprah Winfrey             3        225
+## 4                    U2             4        110
+## 5           Tiger Woods             5         90
+## 6      Steven Spielberg             6        332
+## 7          Howard Stern             7        302
+## 8               50 Cent             8         41
+## 9  Cast of the Sopranos             9         52
+## 10            Dan Brown            10         88
+## 11    Bruce Springsteen            11         55
+## 12         Donald Trump            12         44
+## 13         Muhammad Ali            13         55
+## 14       Paul McCartney            14         40
+## 15         George Lucas            15        233
+## 16           Elton John            16         34
+## 17      David Letterman            17         40
+## 18       Phil Mickelson            18         47
+## 19          J.K Rowling            19         75
+## 20           Bradd Pitt            20         25
+## 21        Peter Jackson            21         39
+## 22      Dr. Phil McGraw            22         45
+## 23            Jay Lenon            23         32
+## 24          Celine Dion            24         40
+## 25          Kobe Bryant            25         31</code></pre>
+</div>
+<div id="c.-2" class="section level2">
+<h2>c. </h2>
+<pre class="r"><code>write.csv(celebrity_data, &quot;PowerRanking.csv&quot;, row.names = FALSE)
+
+imported_data &lt;- read.csv(&quot;PowerRanking.csv&quot;)
+
+print(imported_data)</code></pre>
+<pre><code>##                   names power_ranking annual_pay
+## 1            Tom Cruise             1         67
+## 2        Rolling Stones             2         90
+## 3         Oprah Winfrey             3        225
+## 4                    U2             4        110
+## 5           Tiger Woods             5         90
+## 6      Steven Spielberg             6        332
+## 7          Howard Stern             7        302
+## 8               50 Cent             8         41
+## 9  Cast of the Sopranos             9         52
+## 10            Dan Brown            10         88
+## 11    Bruce Springsteen            11         55
+## 12         Donald Trump            12         44
+## 13         Muhammad Ali            13         55
+## 14       Paul McCartney            14         40
+## 15         George Lucas            15        233
+## 16           Elton John            16         34
+## 17      David Letterman            17         40
+## 18       Phil Mickelson            18         47
+## 19          J.K Rowling            19         75
+## 20           Bradd Pitt            20         25
+## 21        Peter Jackson            21         39
+## 22      Dr. Phil McGraw            22         45
+## 23            Jay Lenon            23         32
+## 24          Celine Dion            24         40
+## 25          Kobe Bryant            25         31</code></pre>
+</div>
+<div id="d." class="section level2">
+<h2>d. </h2>
+<pre class="r"><code>selected_rows &lt;- celebrity_data[10:20, ]
+
+save(selected_rows, file = &quot;Ranks.RData&quot;)</code></pre>
+</div>
+<div id="e." class="section level2">
+<h2>e.</h2>
+</div>
+</div>
+<div id="the-output-from-the-printselected_rows-command-will-display-a-subset-of-the-original-data-frame-specifically-rows-10-to-20.-this-will-show-the-names-power-rankings-and-annual-salaries-of-those-celebrities-to-focus-on-particular-high-ranking-individuals-from-the-list." class="section level1">
+<h1>The output from the <code>print(selected_rows)</code> command will
+display a subset of the original data frame, specifically rows 10 to 20.
+This will show the names, power rankings, and annual salaries of those
+celebrities, to focus on particular high-ranking individuals from the
+list.</h1>
 </div>
 
 

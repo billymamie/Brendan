@@ -120,6 +120,7 @@ stats_vector <- c(length(rivers),
 ## It shows the data of the built in rivers data set but the data has been altered since there are functions that are applied.
 
 ## c.
+```{r}
 rivers
 
 
@@ -133,7 +134,8 @@ stats_vector <- c(length(rivers),
                   max(rivers))
 
 print(stats_vector)
-```
+``` 
+
 # 8. 
 ## a.
 
@@ -180,3 +182,8 @@ save(selected_rows, file = "Ranks.RData")
 
 ## e. 
 # The output from the `print(selected_rows)` command will display a subset of the original data frame, specifically rows 10 to 20. This will show the names, power rankings, and annual salaries of those celebrities, to focus on particular high-ranking individuals from the list.
+
+# 9. 
+```{r}
+
+```
