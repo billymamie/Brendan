@@ -546,104 +546,120 @@ print(stats_vector)</code></pre>
 <h1>8.</h1>
 <div id="a.-5" class="section level2">
 <h2>a.</h2>
-<pre class="r"><code>PowerRanking &lt;-c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
-
-CelebName &lt;- c(&quot;Tom Cruise&quot;, &quot;Rolling Stones&quot;, &quot;Oprah Winfrey&quot;, &quot;U2&quot;, &quot;Tiger Woods&quot;, &quot;Steven Spielberg&quot;, &quot;Howard Stern&quot;, &quot;50 Cent&quot;, &quot;Cast of the Sopranos&quot;, &quot;Dan Brown&quot;, &quot;Bruce Springsteen&quot;, &quot;Donald Trump&quot;, &quot;Muhammad Ali&quot;, &quot;Paul McCartney&quot;, &quot;George Lucas&quot;, &quot;Elton John&quot;, &quot;David Letterman&quot;, &quot;Phil Mickelson&quot;, &quot;J.K Rowling&quot;, &quot;Bradd Pitt&quot;, &quot;Peter Jackson&quot;, &quot;Dr. Phil McGaw&quot;, &quot;Jay Lenon&quot;, &quot;Celine Dion&quot;, &quot;Kobe Bryant&quot;)
-
-Pay &lt;- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31 )
-
-print(PowerRanking)</code></pre>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25</code></pre>
-<pre class="r"><code>print(CelebName)</code></pre>
-<pre><code>##  [1] &quot;Tom Cruise&quot;           &quot;Rolling Stones&quot;       &quot;Oprah Winfrey&quot;       
-##  [4] &quot;U2&quot;                   &quot;Tiger Woods&quot;          &quot;Steven Spielberg&quot;    
-##  [7] &quot;Howard Stern&quot;         &quot;50 Cent&quot;              &quot;Cast of the Sopranos&quot;
-## [10] &quot;Dan Brown&quot;            &quot;Bruce Springsteen&quot;    &quot;Donald Trump&quot;        
-## [13] &quot;Muhammad Ali&quot;         &quot;Paul McCartney&quot;       &quot;George Lucas&quot;        
-## [16] &quot;Elton John&quot;           &quot;David Letterman&quot;      &quot;Phil Mickelson&quot;      
-## [19] &quot;J.K Rowling&quot;          &quot;Bradd Pitt&quot;           &quot;Peter Jackson&quot;       
-## [22] &quot;Dr. Phil McGaw&quot;       &quot;Jay Lenon&quot;            &quot;Celine Dion&quot;         
-## [25] &quot;Kobe Bryant&quot;</code></pre>
-<pre class="r"><code>print(Pay)</code></pre>
-<pre><code>##  [1]  67  90 225 110  90 332 302  41  52  88  55  44  55  40 233  34  40  47  75
-## [20]  25  39  45  32  40  31</code></pre>
+<pre class="r"><code>celebrity &lt;- c(&quot;Tom Cruise&quot;, &quot;Rolling Stones&quot;, &quot;Oprah Winfrey&quot;, &quot;U2&quot;, &quot;Tiger Woods&quot;, &quot;Steven Spielberg&quot;, &quot;Howard Stern&quot;, &quot;50 Cent&quot;, &quot;Cast of the Sopranos&quot;, &quot;Dan Brown&quot;, &quot; Bruce Springsteen&quot;, &quot;Donald Trump&quot;, &quot;Muhammad Ali&quot;, &quot;Paul McCartney&quot;, &quot;George Lucas&quot;, &quot;Elton John&quot;, &quot;David Letterman&quot;, &quot;Phil Mickelson&quot;, &quot;J.K Rowling&quot;, &quot;Brad Pitt&quot;, &quot;Peter Jackson&quot;, &quot;Dr. Phil McGraw&quot;, &quot;Jay Lenon&quot;, &quot;Celine Dion&quot;, &quot;Kobe Bryant&quot;)
+pay &lt;- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+power_ranking &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
+celebrity_data &lt;- data.frame(Celebrity = celebrity, Pay = pay, Power_ranking = power_ranking)
+print(celebrity_data)</code></pre>
+<pre><code>##               Celebrity Pay Power_ranking
+## 1            Tom Cruise  67             1
+## 2        Rolling Stones  90             2
+## 3         Oprah Winfrey 225             3
+## 4                    U2 110             4
+## 5           Tiger Woods  90             5
+## 6      Steven Spielberg 332             6
+## 7          Howard Stern 302             7
+## 8               50 Cent  41             8
+## 9  Cast of the Sopranos  52             9
+## 10            Dan Brown  88            10
+## 11    Bruce Springsteen  55            11
+## 12         Donald Trump  44            12
+## 13         Muhammad Ali  55            13
+## 14       Paul McCartney  40            14
+## 15         George Lucas 233            15
+## 16           Elton John  34            16
+## 17      David Letterman  40            17
+## 18       Phil Mickelson  47            18
+## 19          J.K Rowling  75            19
+## 20            Brad Pitt  25            20
+## 21        Peter Jackson  39            21
+## 22      Dr. Phil McGraw  45            22
+## 23            Jay Lenon  32            23
+## 24          Celine Dion  40            24
+## 25          Kobe Bryant  31            25</code></pre>
 </div>
 <div id="b.-4" class="section level2">
 <h2>b.</h2>
-<pre class="r"><code>JK&lt;- which(CelebName == &quot;J.K Rowling&quot;)
-
-PowerRanking &lt;- PowerRanking [-JK]
-CelebName &lt;- CelebName[-JK]
-Pay &lt;- Pay[-JK]
-
-PowerRanking &lt;- append(PowerRanking, 15, after = 14)
-CelebName &lt;- append(CelebName, &quot;J.K Rowling&quot;, after = 14)
-Pay &lt;- append(Pay, 90, after = 14)
-
-print(PowerRanking)</code></pre>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 15 16 17 18 20 21 22 23 24 25</code></pre>
-<pre class="r"><code>print(CelebName)</code></pre>
-<pre><code>##  [1] &quot;Tom Cruise&quot;           &quot;Rolling Stones&quot;       &quot;Oprah Winfrey&quot;       
-##  [4] &quot;U2&quot;                   &quot;Tiger Woods&quot;          &quot;Steven Spielberg&quot;    
-##  [7] &quot;Howard Stern&quot;         &quot;50 Cent&quot;              &quot;Cast of the Sopranos&quot;
-## [10] &quot;Dan Brown&quot;            &quot;Bruce Springsteen&quot;    &quot;Donald Trump&quot;        
-## [13] &quot;Muhammad Ali&quot;         &quot;Paul McCartney&quot;       &quot;J.K Rowling&quot;         
-## [16] &quot;George Lucas&quot;         &quot;Elton John&quot;           &quot;David Letterman&quot;     
-## [19] &quot;Phil Mickelson&quot;       &quot;Bradd Pitt&quot;           &quot;Peter Jackson&quot;       
-## [22] &quot;Dr. Phil McGaw&quot;       &quot;Jay Lenon&quot;            &quot;Celine Dion&quot;         
-## [25] &quot;Kobe Bryant&quot;</code></pre>
-<pre class="r"><code>print(Pay)</code></pre>
-<pre><code>##  [1]  67  90 225 110  90 332 302  41  52  88  55  44  55  40  90 233  34  40  47
-## [20]  25  39  45  32  40  31</code></pre>
+<pre class="r"><code>power_ranking[19] &lt;- 15 
+pay[19] &lt;- 90
+celebrity_data &lt;- data.frame(Celebrity = celebrity, Pay = pay, Power_ranking = power_ranking)
+print(celebrity_data)</code></pre>
+<pre><code>##               Celebrity Pay Power_ranking
+## 1            Tom Cruise  67             1
+## 2        Rolling Stones  90             2
+## 3         Oprah Winfrey 225             3
+## 4                    U2 110             4
+## 5           Tiger Woods  90             5
+## 6      Steven Spielberg 332             6
+## 7          Howard Stern 302             7
+## 8               50 Cent  41             8
+## 9  Cast of the Sopranos  52             9
+## 10            Dan Brown  88            10
+## 11    Bruce Springsteen  55            11
+## 12         Donald Trump  44            12
+## 13         Muhammad Ali  55            13
+## 14       Paul McCartney  40            14
+## 15         George Lucas 233            15
+## 16           Elton John  34            16
+## 17      David Letterman  40            17
+## 18       Phil Mickelson  47            18
+## 19          J.K Rowling  90            15
+## 20            Brad Pitt  25            20
+## 21        Peter Jackson  39            21
+## 22      Dr. Phil McGraw  45            22
+## 23            Jay Lenon  32            23
+## 24          Celine Dion  40            24
+## 25          Kobe Bryant  31            25</code></pre>
 </div>
 <div id="c.-2" class="section level2">
 <h2>c. </h2>
-<pre class="r"><code>data &lt;- read.csv(&quot;PowerRanking.csv&quot;)
-print(data)</code></pre>
-<pre><code>##                   names power_ranking annual_pay
-## 1            Tom Cruise             1         67
-## 2        Rolling Stones             2         90
-## 3         Oprah Winfrey             3        225
-## 4                    U2             4        110
-## 5           Tiger Woods             5         90
-## 6      Steven Spielberg             6        332
-## 7          Howard Stern             7        302
-## 8               50 Cent             8         41
-## 9  Cast of the Sopranos             9         52
-## 10            Dan Brown            10         88
-## 11    Bruce Springsteen            11         55
-## 12         Donald Trump            12         44
-## 13         Muhammad Ali            13         55
-## 14       Paul McCartney            14         40
-## 15         George Lucas            15        233
-## 16           Elton John            16         34
-## 17      David Letterman            17         40
-## 18       Phil Mickelson            18         47
-## 19          J.K Rowling            19         75
-## 20           Bradd Pitt            20         25
-## 21        Peter Jackson            21         39
-## 22      Dr. Phil McGraw            22         45
-## 23            Jay Lenon            23         32
-## 24          Celine Dion            24         40
-## 25          Kobe Bryant            25         31</code></pre>
+<pre class="r"><code>write.csv(celebrity_data, file = &quot;PowerRanking.csv&quot;, row.names = FALSE)
+celebrity_data_imported &lt;- read.csv(&quot;PowerRanking.csv&quot;)
+celebrity_data_imported</code></pre>
+<pre><code>##               Celebrity Pay Power_ranking
+## 1            Tom Cruise  67             1
+## 2        Rolling Stones  90             2
+## 3         Oprah Winfrey 225             3
+## 4                    U2 110             4
+## 5           Tiger Woods  90             5
+## 6      Steven Spielberg 332             6
+## 7          Howard Stern 302             7
+## 8               50 Cent  41             8
+## 9  Cast of the Sopranos  52             9
+## 10            Dan Brown  88            10
+## 11    Bruce Springsteen  55            11
+## 12         Donald Trump  44            12
+## 13         Muhammad Ali  55            13
+## 14       Paul McCartney  40            14
+## 15         George Lucas 233            15
+## 16           Elton John  34            16
+## 17      David Letterman  40            17
+## 18       Phil Mickelson  47            18
+## 19          J.K Rowling  90            15
+## 20            Brad Pitt  25            20
+## 21        Peter Jackson  39            21
+## 22      Dr. Phil McGraw  45            22
+## 23            Jay Lenon  32            23
+## 24          Celine Dion  40            24
+## 25          Kobe Bryant  31            25</code></pre>
 </div>
 <div id="d." class="section level2">
 <h2>d.</h2>
-<pre class="r"><code>SubsetData &lt;- data[10:20, ]
-save(SubsetData, file = &quot;Ranks.RData&quot;)
-print(SubsetData)</code></pre>
-<pre><code>##                names power_ranking annual_pay
-## 10         Dan Brown            10         88
-## 11 Bruce Springsteen            11         55
-## 12      Donald Trump            12         44
-## 13      Muhammad Ali            13         55
-## 14    Paul McCartney            14         40
-## 15      George Lucas            15        233
-## 16        Elton John            16         34
-## 17   David Letterman            17         40
-## 18    Phil Mickelson            18         47
-## 19       J.K Rowling            19         75
-## 20        Bradd Pitt            20         25</code></pre>
+<pre class="r"><code>ranks &lt;- celebrity_data[10:20,]
+save(ranks, file = &quot;Ranks.RData&quot;)
+print(ranks)</code></pre>
+<pre><code>##             Celebrity Pay Power_ranking
+## 10          Dan Brown  88            10
+## 11  Bruce Springsteen  55            11
+## 12       Donald Trump  44            12
+## 13       Muhammad Ali  55            13
+## 14     Paul McCartney  40            14
+## 15       George Lucas 233            15
+## 16         Elton John  34            16
+## 17    David Letterman  40            17
+## 18     Phil Mickelson  47            18
+## 19        J.K Rowling  90            15
+## 20          Brad Pitt  25            20</code></pre>
 </div>
 <div id="e." class="section level2">
 <h2>e.</h2>

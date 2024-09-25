@@ -141,45 +141,33 @@ print(stats_vector)
 ## a.
 
 ```{r}
-PowerRanking <-c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
-
-CelebName <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Bradd Pitt", "Peter Jackson", "Dr. Phil McGaw", "Jay Lenon", "Celine Dion", "Kobe Bryant")
-
-Pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31 )
-
-print(PowerRanking)
-print(CelebName)
-print(Pay)
+celebrity <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", " Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Brad Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Lenon", "Celine Dion", "Kobe Bryant")
+pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+power_ranking <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
+celebrity_data <- data.frame(Celebrity = celebrity, Pay = pay, Power_ranking = power_ranking)
+print(celebrity_data)
 ```
 
 ## b.
 ```{r}
-JK<- which(CelebName == "J.K Rowling")
-
-PowerRanking <- PowerRanking [-JK]
-CelebName <- CelebName[-JK]
-Pay <- Pay[-JK]
-
-PowerRanking <- append(PowerRanking, 15, after = 14)
-CelebName <- append(CelebName, "J.K Rowling", after = 14)
-Pay <- append(Pay, 90, after = 14)
-
-print(PowerRanking)
-print(CelebName)
-print(Pay)
+power_ranking[19] <- 15 
+pay[19] <- 90
+celebrity_data <- data.frame(Celebrity = celebrity, Pay = pay, Power_ranking = power_ranking)
+print(celebrity_data)
 ```
 
 ## c. 
 ```{r}
-data <- read.csv("PowerRanking.csv")
-print(data)
+write.csv(celebrity_data, file = "PowerRanking.csv", row.names = FALSE)
+celebrity_data_imported <- read.csv("PowerRanking.csv")
+celebrity_data_imported
 ```
 
 ## d.
 ```{r}
-SubsetData <- data[10:20, ]
-save(SubsetData, file = "Ranks.RData")
-print(SubsetData)
+ranks <- celebrity_data[10:20,]
+save(ranks, file = "Ranks.RData")
+print(ranks)
 ```
 
 ## e. 
