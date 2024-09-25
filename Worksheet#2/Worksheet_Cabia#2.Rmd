@@ -1,0 +1,154 @@
+---
+title: "RWorksheet_Cabia#2.R"
+author: "Billy Brendan Cabia"
+date: "2024-09-25"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 1.
+# a.
+```{r}
+operator <- c(-5:5)
+print(operator)
+```
+## It prints the values -5 to 5.
+
+# b.
+```{r}
+x <- 1:7
+print(x)
+```
+## The values of x are 1 2 3 4 5 6 7
+
+# 2. 
+```{r}
+seqA <- seq(1, 3, by=0.2)
+print(seqA)
+```
+## It's values starts from 1.0 and it increments by 0.2
+
+# 3.
+# A factory has a census of its workers. There are 50 workers in total. The following
+# list shows their ages: 34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27,
+# 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35,
+# 24,33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26,
+# 18.
+## a.
+## 22
+
+## b.
+## 28, 36
+
+## c.
+##  
+
+```{r}
+
+```
+
+# 4.
+```{r}
+names <- c("first"=3, "second"=0, "third"=9)
+print(names)
+
+names[c("first", "third")]
+```
+## It printed only the first and third and their values. 
+
+# 5. 
+
+```{r}
+seqB <- seq(-3:2)
+```
+
+## a.
+```{r}
+seqB[2] <- 0
+print(seqB)
+```
+## It changed the value of the second index to zero
+
+# 6. 
+## a. 
+```{r}
+months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun")
+price_per_liter <- c(52.50, 57.25, 60.00, 65.00, 74.25, 54.00)
+purchase_quantity <- c(25, 30, 40, 50, 10, 45)
+
+dataA <- data.frame(Month = months, 
+Price_per_Liter = price_per_liter, 
+Purchase_Quantity = purchase_quantity)
+
+print(dataA)
+```
+
+# b. 
+
+```{r}
+expenditure <- price_per_liter * purchase_quantity
+
+average_expenditure <- weighted.mean(expenditure, purchase_quantity)
+
+print(average_expenditure)
+
+```
+
+# 7.
+
+```{r}
+rivers
+
+
+stats_vector <- c(length(rivers),
+                  sum(rivers), 
+                  mean(rivers), 
+                  median(rivers), 
+                  var(rivers), 
+                  sd(rivers), 
+                  min(rivers), 
+                  max(rivers))
+
+```
+
+## b. 
+## It shows the data of the built in rivers data set but the data has been altered since there are functions that are applied.
+
+## c.
+rivers
+
+
+stats_vector <- c(length(rivers),
+                  sum(rivers), 
+                  mean(rivers), 
+                  median(rivers), 
+                  var(rivers), 
+                  sd(rivers), 
+                  min(rivers), 
+                  max(rivers))
+
+print(stats_vector)
+```
+# 8. 
+## a.
+
+```{r}
+names <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods",
+           "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown",
+           "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas",
+           "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Bradd Pitt",
+           "Peter Jackson", "Dr. Phil McGraw", "Jay Lenon", "Celine Dion", "Kobe Bryant")
+power_ranking <- 1:25
+annual_pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88,
+                55, 44, 55, 40, 233, 34, 40, 47, 75, 25,
+                39, 45, 32, 40, 31)
+
+celebrity_data <- data.frame(names, power_ranking, annual_pay)
+
+print(celebrity_data)
+```
