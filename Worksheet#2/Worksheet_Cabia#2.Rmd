@@ -101,6 +101,7 @@ print(average_expenditure)
 
 # 7.
 
+## a.
 ```{r}
 rivers
 
@@ -140,50 +141,116 @@ print(stats_vector)
 ## a.
 
 ```{r}
-names <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods",
-           "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown",
-           "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas",
-           "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Bradd Pitt",
-           "Peter Jackson", "Dr. Phil McGraw", "Jay Lenon", "Celine Dion", "Kobe Bryant")
-power_ranking <- 1:25
-annual_pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88,
-                55, 44, 55, 40, 233, 34, 40, 47, 75, 25,
-                39, 45, 32, 40, 31)
+PowerRanking <-c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
 
-celebrity_data <- data.frame(names, power_ranking, annual_pay)
+CelebName <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K Rowling", "Bradd Pitt", "Peter Jackson", "Dr. Phil McGaw", "Jay Lenon", "Celine Dion", "Kobe Bryant")
 
-print(celebrity_data)
+Pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31 )
+
+print(PowerRanking)
+print(CelebName)
+print(Pay)
 ```
+
 ## b.
 ```{r}
-celebrity_data$power_ranking[celebrity_data$names == "J.K. Rowling"] <- 19
-celebrity_data$annual_pay[celebrity_data$names == "J.K. Rowling"] <- 75
+JK<- which(CelebName == "J.K Rowling")
 
-print(celebrity_data)
+PowerRanking <- PowerRanking [-JK]
+CelebName <- CelebName[-JK]
+Pay <- Pay[-JK]
+
+PowerRanking <- append(PowerRanking, 15, after = 14)
+CelebName <- append(CelebName, "J.K Rowling", after = 14)
+Pay <- append(Pay, 90, after = 14)
+
+print(PowerRanking)
+print(CelebName)
+print(Pay)
 ```
 
 ## c. 
 ```{r}
-
-write.csv(celebrity_data, "PowerRanking.csv", row.names = FALSE)
-
-imported_data <- read.csv("PowerRanking.csv")
-
-print(imported_data)
+data <- read.csv("PowerRanking.csv")
+print(data)
 ```
 
-
-## d. 
+## d.
 ```{r}
-selected_rows <- celebrity_data[10:20, ]
-
-save(selected_rows, file = "Ranks.RData")
+SubsetData <- data[10:20, ]
+save(SubsetData, file = "Ranks.RData")
+print(SubsetData)
 ```
 
 ## e. 
 # The output from the `print(selected_rows)` command will display a subset of the original data frame, specifically rows 10 to 20. This will show the names, power rankings, and annual salaries of those celebrities, to focus on particular high-ranking individuals from the list.
 
 # 9. 
+## a.
 ```{r}
+library(readxl)
+hotels_data <- read_excel("hotels-vienna.xlsx")
+hotels_data
+```
+## b.
 
+```{r}
+dataset_dimensions <- dim(hotels_data)
+dataset_dimensions
+```
+
+## c.
+
+```{r}
+library(dplyr)
+selected_columns <- hotels_data %>% select(country, neighbourhood, price, stars, accommodation_type, rating)
+selected_columns
+```
+
+## d.
+
+```{r}
+library(readxl)
+library(dplyr)
+
+hotels_data <- read_excel("hotels-vienna.xlsx")
+colnames(hotels_data)
+selected_columns <- hotels_data %>% select(country, neighbourhood, price, stars, accommodation_type, rating)
+save(selected_columns, file = "new.RData")
+```
+
+## e.
+
+```{r}
+load("new.RData")
+
+first_six_rows <- head(selected_columns)
+print(first_six_rows)
+
+last_six_rows <- tail(selected_columns)
+print(last_six_rows)
+```
+
+# 10.
+## a.
+```{r}
+vegetables <- c("squash", "okra", "carrot", "potato", "cabbage", "radish", "lettuce", "broccoli", "mushroom", "eggplant")
+print(vegetables)
+```
+## b.
+```{r}
+vegetables <- c(vegetables, "garlic","ginger")
+print(vegetables)
+```
+## c.
+```{r}
+vegetables <- append(vegetables, c("beans", "lemongrass", "leek", "cilantro"), after = 5)
+print(vegetables)
+length(vegetables)
+```
+## d.
+```{r}
+vegetables <- vegetables[-c(5, 10, 15)]
+print(vegetables)
+length(vegetables)
 ```
