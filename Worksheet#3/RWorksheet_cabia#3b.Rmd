@@ -1,0 +1,128 @@
+---
+title: "RWorksheet_cabia#3b"
+author: "Billy Brendan Cabia"
+date: "2024-10-02"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# 1.
+# a.
+```{r}
+dframe <- data.frame(
+  Respondents = 1:20, 
+  Sex = c(2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2), 
+  Fathers_Occupation = c(1, 3, 3, 3, 1, 2, 3, 1, 1, 1, 3, 2, 1, 3, 3, 1, 3, 1, 2, 1), 
+  Home = c(5, 7, 3, 8, 5, 9, 6, 7, 8, 4, 7, 5, 4, 7, 8, 8, 3, 11, 7, 6), 
+  SiblingsatSchool = c(6, 4, 4, 1, 2, 1, 5, 3, 1, 2, 3, 2, 5, 5, 2, 1, 2, 5, 3, 2), 
+  typesofHouses = c(1, 2, 3, 1, 1, 3, 3, 1, 2, 3, 2, 3, 2, 2, 3, 3, 3, 3, 3, 2)
+  )
+
+dframe
+```
+# b.
+```{r}
+str(dframe)
+```
+# The structure displays the number of rows and columns in the data frame. It provides a preview of the first few entries and shows the data type of each column.
+# c.
+```{r}
+mean(dframe$SiblingsatSchool)
+```
+# d.
+```{r}
+subset<- dframe[1:2, ]
+subset 
+```
+# e.
+```{r}
+subset <- dframe[c(3, 5), c(2, 4)]
+subset
+```
+# f.
+```{r}
+types_houses <- dframe$typesofHouses
+```
+# g.
+```{r}
+maleF <- subset(dframe, Sex == 1 & Fathers_Occupation == 1)
+maleF
+```
+# h.
+```{r}
+femaleS <- subset(dframe, Sex == 2 & SiblingsatSchool >= 5)
+femaleS
+```
+
+# 2.
+# a.
+```{r}
+df = data.frame(Ints=integer(),
+          Doubles=double(), Characters=character(),
+          Logicals=logical(),
+          Factors=factor(),
+          stringsAsFactors=FALSE)
+
+print("Structure of the empty dataframe:")
+print(str(df))
+```
+# The code creates an empty data frame with five columns of different data types.
+
+# 3.
+# a.
+```{r}
+householddata <- data.frame(
+  Respondents = 1:10,
+  Sex = c("Male", "Female", "Female", "Male", "Male", "Female", "Female", "Male", "Female", "Male"),
+  Fathers_Occupation = c(1, 2, 3, 3, 1, 2, 2, 1, 1, 3),
+  Persons_at_Home = c(5, 7, 3, 8, 6, 4, 2, 4, 11, 6),
+  Siblings_at_School = c(5, 3, 3, 5, 6, 3, 1, 2, 6, 6),
+  Types_of_Houses = c("Wood", "Concrete", "Concrete", "Wood", "Semi-concrete", "Semi-concrete", "Wood", "Semi-concrete", "Semi-concrete", "Concrete")
+)
+householddata
+
+write.csv(householddata, file = "HouseholdData.csv", row.names = FALSE)
+
+householddata <- read.csv("HouseholdData.csv")
+
+householddata
+```
+# b.
+```{r}
+householddata$Sex <- factor(householddata$Sex, levels = c("Male", "Female"), labels = c(1, 2))
+
+householddata$Sex <- as.integer(householddata$Sex)
+householddata
+```
+# c.
+```{r}
+householddata$Types_of_Houses <- factor(householddata$Types_of_Houses, levels = c("Wood", "Concrete", "Semi-concrete"), labels = c(1, 2, 3))
+
+householddata$Types_of_Houses <- as.integer(householddata$Types_of_Houses)
+
+householddata
+```
+# d.
+```{r}
+householddata$Fathers_Occupation <- factor(householddata$Fathers_Occupation, levels = c(1, 2, 3), labels = c("Farmer", "Driver", "Others"))
+
+householddata$Fathers_Occupation <- as.integer(householddata$Fathers_Occupation)
+
+householddata
+```
+# e.
+```{r}
+female_driver_respondents <- subset(householddata, Sex == 2 & Fathers_Occupation == 2)
+female_driver_respondents
+```
+# f.
+```{r}
+siblings <- subset(householddata, Siblings_at_School >= 5)
+siblings
+
+```
+
+# 4.
+# The bar graph shows the sentiment analysis of tweets over a period of days, it shows how the volume of tweets with positive, neutral, and negative sentiments varied daily. 
