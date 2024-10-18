@@ -24,7 +24,7 @@ sframe
 ```
 
 # a.
-# The data contains two sets of observations for shoe size, height, and gender labeled as Shoe_size1, Height1, Gender1 and Shoe_size, Height, Gender. Each row represents an individual, with the shoe size, height, and gender listed for that person in two separate sets.
+# The data contains two sets of observations for shoe size, height, and gender.
 
 # b.
 ```{r}
