@@ -1,0 +1,84 @@
+---
+title: "RWorksheet_Cabia#4a"
+author: "Billy Brendan Cabia"
+date: "2024-10-18"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# 1.
+```{r}
+sframe <- data.frame(
+  Shoe_size = c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5),
+  Height = c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.5, 67.0, 71.0, 71.0),
+  Gender = c("F", "F", "F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M"),
+  Shoe_size = c(13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0),
+  Height = c(77.0, 72.0, 59.0, 62.0, 72.0, 66.0, 64.0, 67.0, 73.0, 69.0, 72.0, 70.0, 69.0, 70.0),
+  Gender = c("M", "M", "F", "F", "M", "F", "F", "M", "M", "F", "M", "M", "M", "M"))
+
+sframe
+```
+
+# a.
+# The data contains two sets of observations for shoe size, height, and gender labeled as Shoe_size1, Height1, Gender1 and Shoe_size, Height, Gender. Each row represents an individual, with the shoe size, height, and gender listed for that person in two separate sets.
+
+# b.
+```{r}
+males <- sframe[sframe$Gender == "M", c("Shoe_size", "Height")]
+females <- sframe[sframe$Gender == "F", c("Shoe_size", "Height")]
+
+males
+females
+```
+
+# c.
+```{r}
+mean_shoe_size <- mean(sframe$Shoe_size)
+mean_height <- mean(sframe$Height)
+
+mean_shoe_size
+mean_height
+```
+
+# d.
+```{r}
+correlation <- cor(sframe$Shoe_size, sframe$Height)
+correlation
+```
+
+# 2.
+```{r}
+months_vector <- c(
+  "March", "April", "January", "November", "January", "September", "October", 
+  "September", "November", "August", "January", "November", "November", "February", 
+  "May", "August", "July", "December", "August", "August", "September", "November", 
+  "February", "April")
+months_vector
+
+factor_months_vector <- factor(months_vector)
+
+factor_months_vector
+```
+
+# 3.
+```{r}
+summary(months_vector)
+
+summary(factor_months_vector)
+```
+
+# 4.
+```{r}
+directions_vector <- c("East", "West", "North")
+frequencies_vector <- c(1, 4, 3)
+
+factor_data <- factor(directions_vector)
+
+new_order_data <- factor(factor_data, levels = c("East", "West", "North"))
+
+new_order_data
+```
