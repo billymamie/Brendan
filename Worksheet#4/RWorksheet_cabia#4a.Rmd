@@ -82,3 +82,14 @@ new_order_data <- factor(factor_data, levels = c("East", "West", "North"))
 
 new_order_data
 ```
+
+# 5.
+# a.
+```{r}
+data <- read.table("import_march.csv", header = TRUE, sep = ",")
+```
+
+# b.
+```{r}
+data
+```
