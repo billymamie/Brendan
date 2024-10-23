@@ -110,24 +110,20 @@ if(user_input == 20){
 
 # 7.
 ```{r}
-min_bills_needed <- function(snack_price) {
+minBills <- function(price) {
   bills <- c(1000, 500, 200, 100, 50)
-  
   count <- 0
-  
   for (bill in bills) {
-    if (snack_price >= bill) {
-      count <- count + (snack_price %/% bill) 
-      snack_price <- snack_price %% bill 
+    
+    while (price >= bill) {
+      price <- price - bill  
+      count <- count + 1   
     }
   }
-  
   return(count)
 }
-
-snack_price <- readline(prompt = "Enter the price of the snack (divisible by 50): ")
-min_bills <- min_bills_needed(snack_price)
-cat("Minimum number of bills needed:", min_bills, "\n")
+snack_price <- 150
+cat("Minimum number of bills needed:", minBills(snack_price), "\n")
 
 ```
 
