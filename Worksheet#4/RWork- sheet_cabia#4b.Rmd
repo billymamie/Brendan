@@ -92,7 +92,7 @@ barplot(gender_counts,
         main = "Number of Males and Females",
         xlab = "Gender",
         ylab = "Count",
-        col = c("blue", "pink"),
+        col = c("blue", "orange"),
         legend = rownames(gender_counts),
         beside = TRUE)
 
